@@ -1,0 +1,135 @@
+from OpenGL.GL import *
+from OpenGL.GLUT import *
+from OpenGL.GLU import *
+
+
+# This function is used to draw lines.
+def draw_lines():
+    glBegin(GL_LINES)
+
+    # Draw the shape for number 2
+    # Digit 2: Red
+    glColor3f(1.0, 0.0, 0.0)
+    glVertex2f(50, 100)
+    glVertex2f(100, 100)
+
+    glVertex2f(50, 200)
+    glVertex2f(100, 200)
+
+    glVertex2f(50, 300)
+    glVertex2f(100, 300)
+
+    # Draw the shape for number 0
+    # Digit 0: Green
+    glColor3f(0.0, 1.0, 0.0)
+    glVertex2f(150, 100)
+    glVertex2f(200, 100)
+
+    glVertex2f(150, 300)
+    glVertex2f(200, 300)
+
+    # Draw the shape for number 3
+    # Digit 3: Blue
+    glColor3f(0.0, 0.0, 1.0)
+    glVertex2f(250, 100)
+    glVertex2f(300, 100)
+
+    glVertex2f(250, 200)
+    glVertex2f(300, 200)
+
+    glVertex2f(250, 300)
+    glVertex2f(300, 300)
+
+    # Draw the shape for number 0
+    # Digit 0: Yellow
+    glColor3f(1.0, 1.0, 0.0)
+    glVertex2f(350, 200)
+    glVertex2f(400, 200)
+
+    glVertex2f(400, 100)
+    glVertex2f(400, 300)
+
+    glVertex2f(350, 200)
+    glVertex2f(400, 300)
+
+    # Draw the shape for number 1
+    # Digit 1: Cyan
+    glColor3f(0.0, 1.0, 1.0)
+    glVertex2f(500, 100)
+    glVertex2f(500, 300)
+
+    glVertex2f(450, 250)
+    glVertex2f(500, 300)
+
+    # Draw the shape for number 2
+    # Digit 2: White
+    glColor3f(1.0, 1.0, 1.0)
+    glVertex2f(550, 100)
+    glVertex2f(600, 100)
+
+    glVertex2f(550, 300)
+    glVertex2f(600, 300)
+
+    glVertex2f(550, 100)
+    glVertex2f(550, 300)
+
+    glVertex2f(600, 100)
+    glVertex2f(600, 300)
+
+    # Draw the shape for number 4
+    # Digit 4: Purple
+    glColor3f(1.0, 0.0, 1.0)
+    glVertex2f(650, 100)
+    glVertex2f(700, 100)
+
+    glVertex2f(650, 200)
+    glVertex2f(700, 200)
+
+    glVertex2f(650, 300)
+    glVertex2f(700, 300)
+
+    # Draw the shape for number 2
+    # Digit 2: Rainbow
+    glColor3f(1.0, 0.0, 0.0)
+    glVertex2f(750, 300)
+    glColor3f(0.0, 1.0, 0.0)
+    glVertex2f(800, 300)
+
+    glColor3f(0.0, 0.0, 1.0)
+    glVertex2f(750, 100)
+    glColor3f(0.0, 1.0, 0.0)
+    glVertex2f(800, 300)
+
+    glEnd()
+
+
+def iterate():
+    glViewport(0, 0, 900, 400)
+    glMatrixMode(GL_PROJECTION)
+    glLoadIdentity()
+    glOrtho(0.0, 900, 0.0, 400, 0.0, 1.0)
+    glMatrixMode (GL_MODELVIEW)
+    glLoadIdentity()
+
+
+def showScreen():
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+    glLoadIdentity()
+    iterate()
+
+    draw_lines()
+
+    glutSwapBuffers()
+
+
+glutInit()
+glutInitDisplayMode(GLUT_RGBA)
+
+glutInitWindowSize(900, 400)
+glutInitWindowPosition(0, 0)
+
+wind = glutCreateWindow(b"Task03: Student ID")
+
+glutDisplayFunc(showScreen)
+
+glutMainLoop()
